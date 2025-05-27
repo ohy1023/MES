@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohyungsang.mes.mapper.UserMapper">
+
+    <select id="findAllActive" resultType="User">
+        SELECT
+            id,
+            user_uuid,
+            name,
+            email,
+            password,
+            deleted_at,
+            created_at,
+            updated_at
+        FROM users
+        WHERE deleted_at IS NULL
+    </select>
+
+</mapper>
